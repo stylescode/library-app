@@ -23,9 +23,23 @@ function addBookToLibrary() {
 
 
 // generate user form on click with listener
+const addBookBtn = document.querySelector('.add-book');
+const bookForm = document.querySelector('.book-form');
+const exitFormBtn = document.querySelector('.close-form');
+
+addBookBtn.addEventListener('click', function() {
+  bookForm.showModal();
+});
+
+exitFormBtn.addEventListener('click', function() {
+  bookForm.close();
+});
 
 
 // func to display a book
 
 
 // loop through library and display each book
+
+
+// populate example books
