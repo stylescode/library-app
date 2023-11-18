@@ -19,21 +19,39 @@ function addBookToLibrary() {
 
 }
 
-// func for user form
-
 
 // generate user form on click with listener
+const inputModal = document.querySelector('.input-modal');
 const addBookBtn = document.querySelector('.add-book');
-const bookForm = document.querySelector('.book-form');
 const exitFormBtn = document.querySelector('.close-form');
+const form = document.querySelector('form');
+const successModal = document.querySelector('.success-modal');
+const closeSuccessModal = document.querySelector('.close-success');
 
 addBookBtn.addEventListener('click', function() {
-  bookForm.showModal();
+  inputModal.showModal();
 });
 
 exitFormBtn.addEventListener('click', function() {
-  bookForm.close();
+  inputModal.close();
 });
+
+form.addEventListener('submit', function() {
+  // capture input
+  event.preventDefault();
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  let year = document.getElementById('year').value;
+  let pages = document.getElementById('pages').value;
+  let read = document.querySelector('input[type="checkbox"]:checked');
+  read = (read) ? true : false;
+  let bookToAdd = new Book(title, author, year, pages, read);
+  console.log(bookToAdd);
+  inputModal.close();
+  successModal.showModal();
+})
+
+closeSuccessModal.addEventListener('click', successModal.close());
 
 
 // func to display a book

@@ -8,7 +8,11 @@
   <title>Document</title>
 </head>
 <body>
-  <dialog class="book-form">
+  <dialog class="success-modal">
+    <button class="close-success">X</button>
+    <div class="success">You've successfully added a book!</div>
+  </dialog>
+  <dialog class="input-modal">
     <button class="close-form">X</button>
     <div class="info">Please fill out the information below to add a book to the library.</div>
     <form action="" method="">
@@ -20,12 +24,9 @@
       <input type="text" id="year" required>
       <label for="pages"># of Pages:</label>
       <input type="text" id="pages" required>
-      <label for="read-status">Have You Read This Book?</label>
-      <label for="read-yes">Yes</label>
-      <input type="radio" id="read-yes">
-      <label for="read-no">No</label>
-      <input type="radio" id="read-no">
-      <input type="submit">
+      <input type="checkbox" id="read-status">
+      <label for="read-status">I have read this book.</label>
+      <input type="submit" id="submit">
     </form>
   </dialog>
   <button class="add-book">Add Book</button>
