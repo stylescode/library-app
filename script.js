@@ -9,15 +9,28 @@ function Book(title, author, year, pages, read) {
   this.read = read;
 }
 
-
-// take user input, create book and add to library
 function addBookToLibrary() {
-  // give user form to fill out
-  // use form info for parameters
-  // create Book
-  // add the book to library
-
+  // use user input to create book
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  let year = document.getElementById('year').value;
+  let pages = document.getElementById('pages').value;
+  let read = document.querySelector('input[type="checkbox"]:checked');
+  read = (read) ? true : false;
+  let book = new Book(title, author, year, pages, read);
+  console.log(book);
+  // push new book into library
+  myLibrary.push(book);
 }
+
+// maybe create prototype methods for book? like to create a
+
+/*
+Book.prototype.changeReadStatus = function() {
+  (this.read === true) ? false : true;
+}
+
+*/
 
 
 // generate user form on click with listener
@@ -37,27 +50,32 @@ exitFormBtn.addEventListener('click', function() {
 });
 
 form.addEventListener('submit', function() {
-  // capture input
   event.preventDefault();
-  let title = document.getElementById('title').value;
-  let author = document.getElementById('author').value;
-  let year = document.getElementById('year').value;
-  let pages = document.getElementById('pages').value;
-  let read = document.querySelector('input[type="checkbox"]:checked');
-  read = (read) ? true : false;
-  let bookToAdd = new Book(title, author, year, pages, read);
-  console.log(bookToAdd);
+  addBookToLibrary();
   inputModal.close();
+  // reset form
+  resetForm();
   successModal.showModal();
 })
 
-closeSuccessModal.addEventListener('click', successModal.close());
+closeSuccessModal.addEventListener('click', function() {
+  successModal.close();
+  // run display library function
+
+});
 
 
 // func to display a book
 
 
 // loop through library and display each book
+function displayLibrary(array) {
+  // turn each object in the lib
+}
+
+function resetForm() {
+  document.querySelector('form').reset();
+}
 
 
 // populate example books
