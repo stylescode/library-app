@@ -28,8 +28,6 @@ Book.prototype.changeReadStatus = function() {
   (this.read === true) ? false : true;
 }
 
-
-
 // MODAL elements
 const inputModal = document.querySelector('.input-modal');
 const addBookBtn = document.querySelector('.add-book');
@@ -64,7 +62,18 @@ closeSuccessModal.addEventListener('click', function() {
 
 // func (or prototype?) to display a book/create a book card
 function makeCard(object) {
+  // create main html element
+  let bookCard = document.createElement('div');
+  bookCard.classList.add('book-card');
+  // append to main container
+  let container = document.querySelector('.container');
+  container.appendChild(bookCard);
+  // create inner elements
+  // append inner elements to main element
+  bookCard.textContent = object.title;
   console.log(object.title)
+  console.log(object.year);
+  console.log(object.read)
 
 
   // add button for read status toggle
