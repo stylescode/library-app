@@ -23,17 +23,14 @@ function addBookToLibrary() {
   myLibrary.push(book);
 }
 
-// maybe create prototype methods for book? like to create a
-
-/*
+// toggle for read status
 Book.prototype.changeReadStatus = function() {
   (this.read === true) ? false : true;
 }
 
-*/
 
 
-// generate user form on click with listener
+// MODAL elements
 const inputModal = document.querySelector('.input-modal');
 const addBookBtn = document.querySelector('.add-book');
 const exitFormBtn = document.querySelector('.close-form');
@@ -41,6 +38,7 @@ const form = document.querySelector('form');
 const successModal = document.querySelector('.success-modal');
 const closeSuccessModal = document.querySelector('.close-success');
 
+// generate user form on click with listener
 addBookBtn.addEventListener('click', function() {
   inputModal.showModal();
 });
@@ -53,7 +51,6 @@ form.addEventListener('submit', function() {
   event.preventDefault();
   addBookToLibrary();
   inputModal.close();
-  // reset form
   resetForm();
   successModal.showModal();
 })
@@ -65,12 +62,21 @@ closeSuccessModal.addEventListener('click', function() {
 });
 
 
-// func to display a book
+// func (or prototype?) to display a book/create a book card
+function makeCard(object) {
+  console.log(object.title)
+
+
+  // add button for read status toggle
+}
 
 
 // loop through library and display each book
 function displayLibrary(array) {
-  // turn each object in the lib
+  // iterate thru array
+    // turn each object in the lib into a card
+    // append card to container
+
 }
 
 function resetForm() {
@@ -79,3 +85,8 @@ function resetForm() {
 
 
 // populate example books
+let book1 = new Book('Murder on the Orient Express', 'Agatha Christie', 1934, 256, true);
+let book2 = new Book('The Maltese Falcon', 'Dashiell Hammett', 1930, 217, false);
+let book3 = new Book('Mr. Mercedes', 'Stephen King', 2014, 436, true);
+myLibrary.push(book1, book2, book3);
+
