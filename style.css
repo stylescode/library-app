@@ -17,5 +17,12 @@ button {
   width: 800px;
 
 
+}
 
+.book-card {
+  background-color: white;
+  border-radius: 7px;
+  font-size: 20px;
+  height: 200px;
+  width: 350px;
 }

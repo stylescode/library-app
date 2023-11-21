@@ -62,30 +62,41 @@ closeSuccessModal.addEventListener('click', function() {
 
 // func (or prototype?) to display a book/create a book card
 function makeCard(object) {
-  // create main html element
+  // create html element for card
   let bookCard = document.createElement('div');
   bookCard.classList.add('book-card');
-  // append to main container
-  let container = document.querySelector('.container');
-  container.appendChild(bookCard);
   // create inner elements
-  // append inner elements to main element
-  bookCard.textContent = object.title;
-  console.log(object.title)
-  console.log(object.year);
-  console.log(object.read)
+  let cardTitle = document.createElement('div');
+  cardTitle.classList.add('card-title');
+  let cardAuthor = document.createElement('div');
+  cardAuthor.classList.add('card-author');
+  let cardYear = document.createElement('div');
+  cardYear.classList.add('card-year');
+  let cardPages = document.createElement('div');
+  cardPages.classList.add('card-pages');
+  // append inner elements to card element
+  bookCard.append(cardTitle, cardAuthor, cardYear, cardPages);
+  cardTitle.textContent = object.title;
+  cardAuthor.textContent = object.author;
+  cardYear.textContent = `Published: ${object.year}`;
+  cardPages.textContent = `Pages: ${object.pages}`;
+  // add button for read status toggle (this may need to be function)
+  return bookCard;
+}
 
+function makeReadButton(status) {
 
-  // add button for read status toggle
 }
 
 
 // loop through library and display each book
 function displayLibrary(array) {
   // iterate thru array
-    // turn each object in the lib into a card
-    // append card to container
-
+  array.forEach(function(bookObj) {
+    let bookCard = makeCard(bookObj);
+    let container = document.querySelector('.container');
+    container.appendChild(bookCard);
+  })
 }
 
 function resetForm() {
@@ -99,3 +110,4 @@ let book2 = new Book('The Maltese Falcon', 'Dashiell Hammett', 1930, 217, false)
 let book3 = new Book('Mr. Mercedes', 'Stephen King', 2014, 436, true);
 myLibrary.push(book1, book2, book3);
 
+displayLibrary(myLibrary);
