@@ -56,7 +56,7 @@ form.addEventListener('submit', function() {
 closeSuccessModal.addEventListener('click', function() {
   successModal.close();
   // run display library function
-
+  displayLibrary(myLibrary);
 });
 
 
@@ -88,13 +88,13 @@ function makeReadButton(status) {
 
 }
 
-
 // loop through library and display each book
 function displayLibrary(array) {
+  let container = document.querySelector('.container');
   // iterate thru array
+  container.textContent = '';
   array.forEach(function(bookObj) {
     let bookCard = makeCard(bookObj);
-    let container = document.querySelector('.container');
     container.appendChild(bookCard);
   })
 }
