@@ -19,10 +19,26 @@ button {
 
 }
 
+.container {
+
+  display: grid;
+  grid-template: repeat(6, 300px) / repeat(auto-fit, 230px);
+  place-items: center;
+}
+
 .book-card {
   background-color: white;
   border-radius: 7px;
   font-size: 20px;
-  height: 200px;
-  width: 350px;
+  height: 270px;
+  width: 210px;
+}
+
+.card-title {
+  font-size: 30px;
+}
+
+.card-year,
+.card-pages {
+  font-size: 16px;
 }
